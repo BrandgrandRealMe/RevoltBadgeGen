@@ -7,7 +7,7 @@ const express = require("express");
 const { createServer } = require("node:http");
 
 // Text Width getter Packages
-var pixelWidth = require('string-pixel-width');
+var pixelWidth = require("string-pixel-width");
 
 // Log Stuff
 const bl = require("betterdevlogs");
@@ -29,16 +29,29 @@ client.on("ready", async () => {
   server.listen(port, () => {
     log.info("server running!");
   });
+  
   app.get("/", async (req, res) => {
-    res.sendFile(__dirname + '/home/index.htm');
-  })  
+    res.sendFile(__dirname + "/home/index.htm");
+  });
+  
   app.get("/example.svg", async (req, res) => {
-    res.sendFile(__dirname + '/home/example.svg');
-  })  
+    res.sendFile(__dirname + "/home/example.svg");
+  });
+  
+  app.get('/public/:fname', (req, res) => {
+   if (!fs.readFileSync('/public/' + req.params.fname)) r404(res)
+   else
+    res.sendFile(__dirname + '/public/' + req.params.fname);
+  });
+  
   app.get("/s/:id?", async (req, res) => {
     if (req.params.id) {
       const ID = req.params.id;
       const server = client.servers.get(ID);
+      if (!server)
+        return res.send(
+          "Error: Server DOES NOT exist or the bot is NOT in it!"
+        );
       const smembers = await server
         .fetchMembers()
         .then((res) => res.members.length);
@@ -51,13 +64,18 @@ client.on("ready", async () => {
       const members = `${smembers} members`;
 
       const padding = 50;
-      const memberstextWidth = pixelWidth(members, { font: font, size: fontSize });
-      const ServerNametextWidth = pixelWidth(server.name, { font: font, size: fontSize });
-      
-      const ServerNametextBoxWidth = ServerNametextWidth + (padding * 2);
-      const memberstextBoxWidth = memberstextWidth + (padding * 2);
-      
-      
+      const memberstextWidth = pixelWidth(members, {
+        font: font,
+        size: fontSize,
+      });
+      const ServerNametextWidth = pixelWidth(server.name, {
+        font: font,
+        size: fontSize,
+      });
+
+      const ServerNametextBoxWidth = ServerNametextWidth + padding * 2;
+      const memberstextBoxWidth = memberstextWidth + padding * 2;
+
       const SVG = `<svg width="170.2" height="20" viewBox="0 0 1702 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${title}">
   <title>${title}</title>
   <g>
@@ -88,7 +106,6 @@ client.on("messageCreate", async (message) => {
 });
 
 client.loginBot(process.env.TOKEN);
-
 
 // To keep running :)
 process.on("uncaughtException", function (error) {
