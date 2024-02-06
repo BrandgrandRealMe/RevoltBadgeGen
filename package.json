@@ -1,0 +1,25 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^18.0.6",
+    "betterdevlogs": "^1.0.2",
+    "cheerio": "^1.0.0-rc.12",
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "jsdom": "^24.0.0",
+    "node-fetch": "^3.2.6",
+    "revolt.js": "^7.0.0-beta.9",
+    "sharp": "^0.33.2",
+    "string-pixel-width": "^1.11.0",
+    "text-size": "^0.0.1"
+  }
+}

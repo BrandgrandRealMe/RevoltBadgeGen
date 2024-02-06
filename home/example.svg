@@ -1,0 +1,14 @@
+
+<svg width="170.2" height="20" viewBox="0 0 1702 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CYBΞRLabs: 15 members">
+  <title>CYBΞRLabs: 15 members</title>
+  <g>
+    <rect fill="#555" width="700.6" height="200"/>
+    <rect fill="#ff4654" x="700.6" width="712.7" height="200"/>
+  </g>
+  <g aria-hidden="true" fill="#fff" text-anchor="start" font-family="helvetica" font-size="110">
+    <text x="60" y="148" textLength="600.6" fill="#000" opacity="0.1">CYBΞRLabs</text>
+    <text x="50" y="138" textLength="600.6">CYBΞRLabs</text>
+    <text x="750.6" y="148" textLength="612.7" fill="#000" opacity="0.1">15 members</text>
+    <text x="750.6" y="138" textLength="612.7">15 members</text>
+  </g>
+</svg>
