@@ -8,12 +8,15 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
 <link rel="manifest" href="/favicon/site.webmanifest">
+  <script src="https://kit.fontawesome.com/3aab383d52.js" crossorigin="anonymous"></script>
 <title>About RBG</title>
 <style>
     body {
         font-family: Arial, sans-serif;
         text-align: center;
         padding: 20px;
+        color: white;
+        background-color: #242424;
     }
 
     h1 {
@@ -36,20 +39,35 @@
     .button:hover {
         background-color: #82000a;
     }
+  
+    code {
+      font-family: monospace; /* Use a monospace font for the code snippet */
+    }
+    .code-box {
+      background-color: #2d2d2d; /* Set the background color of the code box to gray */
+      padding: 3px; /* Add some padding around the code box */
+      border-radius: 5px; /* Add some rounded corners to the code box */
+    }
+    .copy-button {
+      cursor: pointer;
+    }
 </style>
 </head>
 <body>
 <img src="/favicon/android-chrome-512x512.png" alt="RBG Logo" width="10%">
 <h1>About RevoltBadgeGen</h1>
 <p>Welcome to the RevoltBadgeGen service!<br>
-This service allows you to create custom badge images for showing members in a Revolt Server. Simply invite the bot to your server then use the <code>rbg!generate</code> command to generate a badge image link!
+This service allows you to create custom badge images for showing members in a Revolt Server. Simply invite the bot to your server then use the <a class="code-box"><code>rbg!generate</code>
+  <i class="copy-button fa-regular fa-copy" onclick="navigator.clipboard.writeText('rbg!generate').then(() => alert('Copied to clipboard!'))")"></i></a> command to generate a badge image link!
 <br>
 The badge would look like this:<br>
-<img src="/example.svg" alt="Example Badge">
+<img src="/s/01H3QFBM82MEAZK4HT8FXJ8PD6" alt="Example Badge">
 <br>
 <h2>Uses:</h2>
 <h3>Markdown</h3>
-<code>[![CyberLabs](https://rbg.brandgrandreal.is-a.dev/s/01H3QFBM82MEAZK4HT8FXJ8PD6)](https://rvlt.gg/b4mp1jgX)</code>
+<a class="code-box"><code>[![CyberLabs](https://rbg.brandgrandreal.is-a.dev/s/01H3QFBM82MEAZK4HT8FXJ8PD6)](https://rvlt.gg/b4mp1jgX)</code>
+<i class="copy-button fa-regular fa-copy" onclick="navigator.clipboard.writeText('[![CyberLabs](https://rbg.brandgrandreal.is-a.dev/s/01H3QFBM82MEAZK4HT8FXJ8PD6)](https://rvlt.gg/b4mp1jgX)').then(() => alert('Copied to clipboard!'))")"></i></a>
+
   <br>
 </p>
 
