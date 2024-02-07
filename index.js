@@ -5,6 +5,7 @@ const { Client } = require("revolt.js");
 // Webpage Packages
 const express = require("express");
 const { createServer } = require("node:http");
+const fs = require('fs');
 
 // Text Width getter Packages
 var pixelWidth = require("string-pixel-width");
@@ -39,9 +40,14 @@ client.on("ready", async () => {
   });
   
   app.get('/public/:fname', (req, res) => {
-   if (!fs.readFileSync('/public/' + req.params.fname)) r404(res)
+   if (!fs.readFileSync('./public/' + req.params.fname)) r404(res)
    else
     res.sendFile(__dirname + '/public/' + req.params.fname);
+  });
+  app.get('/favicon/:fname', (req, res) => {
+   if (!fs.readFileSync('./favicon/' + req.params.fname)) r404(res)
+   else
+    res.sendFile(__dirname + '/favicon/' + req.params.fname);
   });
   
   app.get("/s/:id?", async (req, res) => {
